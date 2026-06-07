@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Furniture AI - Local Library &amp; History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#d3e4fe",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-container-high": "#dce9ff",
+                        "primary-container": "#131b2e",
+                        "secondary-container": "#6cf8bb",
+                        "on-surface-variant": "#45464d",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "surface-bright": "#f8f9ff",
+                        "inverse-primary": "#bec6e0",
+                        "surface-tint": "#565e74",
+                        "primary": "#000000",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "on-background": "#0b1c30",
+                        "on-secondary-fixed": "#002113",
+                        "inverse-surface": "#213145",
+                        "outline": "#76777d",
+                        "tertiary-fixed": "#e0e3e5",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#191c1e",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-primary-fixed": "#131b2e",
+                        "surface": "#f8f9ff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#7c839b",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c6c6cd",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#006c49",
+                        "surface-dim": "#cbdbf5",
+                        "on-tertiary-container": "#818486",
+                        "on-secondary-container": "#00714d",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary-fixed": "#191c1e",
+                        "background": "#f8f9ff",
+                        "tertiary": "#000000",
+                        "primary-fixed-dim": "#bec6e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap-lg": "24px",
+                        "section-padding": "40px",
+                        "stack-gap-sm": "8px",
+                        "container-margin": "20px",
+                        "stack-gap-md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-caps": [
+                            "Inter"
+                        ],
+                        "headline-md": [
+                            "Manrope"
+                        ],
+                        "body-lg": [
+                            "Inter"
+                        ],
+                        "display-lg": [
+                            "Manrope"
+                        ],
+                        "body-md": [
+                            "Inter"
+                        ],
+                        "title-sm": [
+                            "Manrope"
+                        ]
+                    },
+                    "fontSize": {
+                        "label-caps": [
+                            "12px",
+                            {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "headline-md": [
+                            "24px",
+                            {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                            }
+                        ],
+                        "body-lg": [
+                            "16px",
+                            {
+                                "lineHeight": "26px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "display-lg": [
+                            "32px",
+                            {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                            }
+                        ],
+                        "body-md": [
+                            "14px",
+                            {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                            }
+                        ],
+                        "title-sm": [
+                            "18px",
+                            {
+                                "lineHeight": "24px",
+                                "fontWeight": "600"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+        }
+        .soft-shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md min-h-screen flex flex-col pb-safe">
+<!-- TopAppBar -->
+<header class="bg-white/90 dark:bg-slate-950/90 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm border-b border-slate-100 dark:border-slate-800">
+<div class="flex justify-between items-center px-5 h-16 w-full">
+<button class="text-slate-900 dark:text-slate-50 hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold text-slate-900 dark:text-slate-50 font-manrope font-semibold tracking-tight">My Library</h1>
+<button class="text-emerald-600 dark:text-emerald-400 hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined">folder_open</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-24 px-container-margin pb-32 max-w-4xl mx-auto w-full">
+<!-- Filter/Action Bar (Optional but fits the Atelier style) -->
+<div class="flex justify-between items-center mb-stack-gap-lg">
+<div class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="bg-surface-tint text-on-primary px-4 py-1.5 rounded-full font-label-caps text-label-caps whitespace-nowrap">All Items</button>
+<button class="bg-surface-container text-on-surface-variant px-4 py-1.5 rounded-full font-label-caps text-label-caps whitespace-nowrap">Sofas</button>
+<button class="bg-surface-container text-on-surface-variant px-4 py-1.5 rounded-full font-label-caps text-label-caps whitespace-nowrap">Chairs</button>
+</div>
+<button class="text-on-surface-variant">
+<span class="material-symbols-outlined">tune</span>
+</button>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-stack-gap-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl soft-shadow overflow-hidden group relative">
+<div class="relative h-40 md:h-48 w-full bg-surface-container-low">
+<img alt="Modern minimalist velvet armchair in emerald green, softly lit in a bright studio environment, high end architectural photography" class="w-full h-full object-cover" data-alt="Modern minimalist velvet armchair in emerald green, softly lit in a bright studio environment, high end architectural photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyX-qZF_HTlGUHEn-UHIwdk2eH4G-NaaMgPjlWuG_c1z7-QUYtrRT3hnlQ9DTR47u3FkVM3rwnUJv7bSWJPRPxuoICKsX2jn1o9UkkzQmtbJocA7edmk3IZRDHRm5vlh1M8Thu24GXfFc2m8OK3_9iR3iNxrt6igodahg7TF3XpkKfgPFwJqFz2jDUmoCKzoiOJmktvpHdnH_bdsFERkLVSWoIhVgqtZi3rdAkdER605emlXhuMzcSi7o0f51WYgJxd_OMx_rvpJ0"/>
+<button class="absolute top-2 right-2 p-1.5 bg-surface-container-lowest/80 backdrop-blur-sm rounded-full text-outline-variant hover:text-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-title-sm text-on-surface truncate mb-1">Velvet Accent Chair</h3>
+<div class="flex justify-between items-center text-outline">
+<span class="font-label-caps text-[10px] tracking-wide">30x40x20 in</span>
+<span class="font-body-md text-[11px]">2 hrs ago</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl soft-shadow overflow-hidden group relative">
+<div class="relative h-40 md:h-48 w-full bg-surface-container-low">
+<img alt="Mid-century modern three-seater sofa in light grey fabric with dark wood legs, isolated on clean background" class="w-full h-full object-cover" data-alt="Mid-century modern three-seater sofa in light grey fabric with dark wood legs, isolated on clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl7HS2EGao0IAVK70WJgMo3sgRU5mq5sjKtuoFw_NNV_u3cGJKgYJ8lbWP2vLokN4PBGM2K3n_YZFykGQHonCeCD93K7xf3T0TQpglDwJIh9igMNhUgvASDKgWAMbHEFXNHuU5IlOZOYn-G8Rsx71KAR9YYkAYsdpSshAC98ECQVGRrNjfozMA_mMxvGByMio1QmAdXkLy5Ulnun1nUm4PNcD896LrHoiJO6OCt6gCZg6DfeM95RGPu3yViMGA8WJ49osxE6QtLL4"/>
+<button class="absolute top-2 right-2 p-1.5 bg-surface-container-lowest/80 backdrop-blur-sm rounded-full text-outline-variant hover:text-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-title-sm text-on-surface truncate mb-1">Mid-Century Sofa</h3>
+<div class="flex justify-between items-center text-outline">
+<span class="font-label-caps text-[10px] tracking-wide">84x35x32 in</span>
+<span class="font-body-md text-[11px]">5 hrs ago</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl soft-shadow overflow-hidden group relative">
+<div class="relative h-40 md:h-48 w-full bg-surface-container-low flex items-center justify-center">
+<img alt="Woven rattan dining chair with black metal frame, natural light casting soft shadows, contemporary interior style" class="w-full h-full object-cover" data-alt="Woven rattan dining chair with black metal frame, natural light casting soft shadows, contemporary interior style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzEwBKyfzylre0melpTiW3sePLg0V67ifsx1WGL_dO4GCDn6HRvzchFMDEoGk34tJVOGTc_iedks5kRUJs0zrhjsPk4XkCAmLq-ZT515p5FwLhjq9Gozlp-IzzXwlylvdoAd0tmapzDAmwZMewOgco7K_mHjWrTLiKvWPct2s4FW4KAwWUzNT1pVW9g4xUdAbf-oiq4R4KBLsl1rOuzv_fdu3f3r5Ehsk1iGSPsvsW5nrW1dHn2jPyaXYfiPeigcnygIV16x3Om2E"/>
+<button class="absolute top-2 right-2 p-1.5 bg-surface-container-lowest/80 backdrop-blur-sm rounded-full text-outline-variant hover:text-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-title-sm text-on-surface truncate mb-1">Rattan Dining Chair</h3>
+<div class="flex justify-between items-center text-outline">
+<span class="font-label-caps text-[10px] tracking-wide">18x20x34 in</span>
+<span class="font-body-md text-[11px]">1 day ago</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl soft-shadow overflow-hidden group relative">
+<div class="relative h-40 md:h-48 w-full bg-surface-container-low flex items-center justify-center">
+<img alt="Minimalist low-profile lounge chair in tan leather, premium materials, clean white studio background" class="w-full h-full object-cover" data-alt="Minimalist low-profile lounge chair in tan leather, premium materials, clean white studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAYCxIKq0pWuxGLohnwQrNbdDdmt7PWt7oKMLBJ5hbtoxJJ7-FfXqrlEz9xumx1_VZ0b53YGTFJ8tKjtqBy24P7wHQgn73bUYNeIj93lTeWIZJwOe2laoYyh-42ormb4-Zqs4MuOlAmxMBq_EGSRMVFQPlniWN7D8rKcWnZIs96eHj-_1LCcgFsadOQcZ2HDSQd4-OqJ9m7ZOwoiTdctfDVDcYZQrD-hNGU-VTBzQLBPnRvzqARR126iM_hjeFfjZ4uUGQSmzu4gE"/>
+<button class="absolute top-2 right-2 p-1.5 bg-surface-container-lowest/80 backdrop-blur-sm rounded-full text-outline-variant hover:text-error transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+<div class="p-3">
+<h3 class="font-title-sm text-title-sm text-on-surface truncate mb-1">Leather Lounge</h3>
+<div class="flex justify-between items-center text-outline">
+<span class="font-label-caps text-[10px] tracking-wide">32x34x28 in</span>
+<span class="font-body-md text-[11px]">2 days ago</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-white dark:bg-slate-950 fixed bottom-0 w-full z-50 pb-safe shadow-[0_-4px_12px_rgba(0,0,0,0.04)] border-t border-slate-100 dark:border-slate-800 md:hidden">
+<div class="flex justify-around items-center h-20 w-full px-2">
+<button class="flex flex-col items-center justify-center text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 rounded-2xl px-4 py-1.5 hover:text-emerald-500 dark:hover:text-emerald-300 active:scale-90 transition-all duration-200 ease-out">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="font-manrope text-[10px] font-bold uppercase tracking-widest">History</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1.5 hover:text-emerald-500 dark:hover:text-emerald-300 active:scale-90 transition-all duration-200 ease-out">
+<span class="material-symbols-outlined mb-1">view_in_ar</span>
+<span class="font-manrope text-[10px] font-bold uppercase tracking-widest">Viewer</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1.5 hover:text-emerald-500 dark:hover:text-emerald-300 active:scale-90 transition-all duration-200 ease-out">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-manrope text-[10px] font-bold uppercase tracking-widest">Account</span>
+</button>
+</div>
+</nav>
+</body></html>

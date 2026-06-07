@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Set Dimensions - Furniture AI</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#d3e4fe",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface-container-high": "#dce9ff",
+                    "primary-container": "#131b2e",
+                    "secondary-container": "#6cf8bb",
+                    "on-surface-variant": "#45464d",
+                    "surface-container-low": "#eff4ff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#0b1c30",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary-fixed-variant": "#444749",
+                    "surface-bright": "#f8f9ff",
+                    "inverse-primary": "#bec6e0",
+                    "surface-tint": "#565e74",
+                    "primary": "#000000",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#e5eeff",
+                    "on-background": "#0b1c30",
+                    "on-secondary-fixed": "#002113",
+                    "inverse-surface": "#213145",
+                    "outline": "#76777d",
+                    "tertiary-fixed": "#e0e3e5",
+                    "error": "#ba1a1a",
+                    "tertiary-container": "#191c1e",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-primary-fixed": "#131b2e",
+                    "surface": "#f8f9ff",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#c4c7c9",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#7c839b",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#c6c6cd",
+                    "on-secondary": "#ffffff",
+                    "secondary": "#006c49",
+                    "surface-dim": "#cbdbf5",
+                    "on-tertiary-container": "#818486",
+                    "on-secondary-container": "#00714d",
+                    "primary-fixed": "#dae2fd",
+                    "on-tertiary-fixed": "#191c1e",
+                    "background": "#f8f9ff",
+                    "tertiary": "#000000",
+                    "primary-fixed-dim": "#bec6e0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-gap-lg": "24px",
+                    "section-padding": "40px",
+                    "stack-gap-sm": "8px",
+                    "container-margin": "20px",
+                    "stack-gap-md": "16px"
+            },
+            "fontFamily": {
+                    "label-caps": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Manrope"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Manrope"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "title-sm": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "26px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "title-sm": [
+                            "17px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen">
+<header class="bg-white/90 dark:bg-slate-950/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-slate-100 dark:border-slate-800 shadow-sm flex justify-between items-center px-5 h-16 w-full">
+<button aria-label="Go back" class="hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-150 flex items-center justify-center text-emerald-600">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<span class="font-headline-md text-title-sm text-slate-900 dark:text-slate-50">Furniture AI</span>
+<button aria-label="Open folder" class="hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-150 flex items-center justify-center text-emerald-600">
+<span class="material-symbols-outlined">folder_open</span>
+</button>
+</header>
+<main class="pt-24 px-container-margin pb-[104px] max-w-md mx-auto">
+<div class="mb-stack-gap-lg">
+<h1 class="font-headline-md text-headline-md text-on-background tracking-tight">Set Dimensions</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Review your captures and specify the physical scale.</p>
+</div>
+<div class="flex overflow-x-auto snap-x snap-mandatory gap-stack-gap-md pb-stack-gap-sm mb-section-padding no-scrollbar -mx-container-margin px-container-margin">
+<div class="snap-center shrink-0 w-64 aspect-[4/3] rounded-2xl bg-surface-container-lowest overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.04)] relative border border-surface-container-highest">
+<img alt="Capture 1" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpM6Idg-zEesRnAlTpkPJnN_GA07XWOJZvywa32OQmB6PLUn7TH08DvoCiM3M3z4nErVF6iuhvOeKG49KBcYxodPizEp5T_KwVIsjizQZ5mdbSOc98eCsnuouA8rp1xDmRR2DiLAGevEOkZjAkvb8GiPE4akShmMwWYQQ6xHS3sZBErYIY-ZXBE4VPWy1rfhbVQELKZNF7YWnzSiIWet7O086kWmb_oasFPVtpB6o3EkfPS9BIAn4TIhOazd5PWNMbTc8fVpfWkzY"/>
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full font-label-caps text-label-caps text-on-background shadow-sm border border-slate-100">Front</div>
+</div>
+<div class="snap-center shrink-0 w-64 aspect-[4/3] rounded-2xl bg-surface-container-lowest overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.04)] relative border border-surface-container-highest">
+<img alt="Capture 2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCbfkShg_TCslnGtLwrxbn8FDeWzBAG5U_sWXu47NXBht3HOQH0zp4Na0YC4xFkQmRNhxKvnMSErRSQ59q_j1SD6f5Ejhlhzgkt6lZtJ1l0oRLCIJKejBBk_lTwEdlduIDugWBBKZnHGgm2Go58tJj6IIUcG2QLN1fXyM2hQvK0E0Eb0SsgOBKj3as3t-CzEqwOX_50Ni6bSHNFmCJGsW0duec5-TmytjPsGgnU2A2uweOTGRLB-u31hXzpv55kFa4cvAijaF-SJI"/>
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full font-label-caps text-label-caps text-on-background shadow-sm border border-slate-100">Side</div>
+</div>
+<div class="snap-center shrink-0 w-64 aspect-[4/3] rounded-2xl bg-surface-container-lowest overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.04)] relative border border-surface-container-highest">
+<img alt="Capture 3" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDi9cEHFLEUWt4Wi5UV4guFHPWJAYNUO8CAg_airJy8rOfphZ0NDAxzRhjBr0JEFdjBt6F2j9EVUglR3tTwYs6tJWFSw11g38e0xaH2jM9-uGwFGrWgQThoBJHoG_R2io0OiJWnSI4ZGMBUfSAME9rOfqCv7er8ye4LgSFfHmAq67fD4u-PNGOkIEi0iuxmWLwHg2MTptOO4mWC4qCKY16976xcgFWB5T-k1bi52V4rqupfK-jXtqlwcuZaCgjy_a_vgvJF19z3_g"/>
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full font-label-caps text-label-caps text-on-background shadow-sm border border-slate-100">Angled</div>
+</div>
+<div class="snap-center shrink-0 w-64 aspect-[4/3] rounded-2xl bg-surface-container-lowest overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.04)] relative border border-surface-container-highest">
+<img alt="Capture 4" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK15gkffDTI9zV67oiGF1xLGpj5MBkMUmz0nFawmk2ez9SXkb_UB33inYMLfx-_Ffq-FqCDRQ2Ny7bDrOu3nAaGq-Mb2UoEJqwrkyq3BJdiHaJKEszeTpLLMBY5JgeQsSA3zMd_HayZ9iol-KL3_g-eVHLJeMUrqm6Kvpyq-KKfaGmB3LLeMwNRyRXLvVOPNUi6yyRpJfNMcwc9P4F4Is4FP0WtOCqpttn1o8TSWn-kDuf-ftDmJD0z-E_73eRaxYl9f9B5eZOfw4"/>
+<div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full font-label-caps text-label-caps text-on-background shadow-sm border border-slate-100">Top</div>
+</div>
+</div>
+<div class="mb-stack-gap-lg flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant px-1" for="item-name">Item Name</label>
+<input class="w-full bg-surface border border-outline-variant rounded-2xl py-3.5 px-5 font-body-md text-on-surface focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" id="item-name" placeholder="e.g. Leather Sofa, Wooden Chair" type="text"/>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl shadow-[0_4px_12px_rgba(0,0,0,0.04)] p-6 mb-section-padding border border-surface-container-highest">
+<div class="flex items-center justify-between p-1.5 bg-slate-100/80 rounded-full w-full max-w-[220px] mx-auto mb-8">
+<button class="flex-1 py-2 text-center rounded-full bg-primary text-on-primary font-title-sm text-[14px] shadow-sm transition-all">Inches</button>
+<button class="flex-1 py-2 text-center rounded-full text-on-surface-variant font-title-sm text-[14px] hover:bg-white/50 transition-colors">CM</button>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant text-center">Width</label>
+<div class="relative">
+<input class="w-full bg-surface border border-outline-variant rounded-2xl py-3.5 text-center font-title-sm text-on-surface focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] appearance-none" placeholder="0" type="number"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 font-body-md text-[12px] text-outline">in</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant text-center">Height</label>
+<div class="relative">
+<input class="w-full bg-surface border border-outline-variant rounded-2xl py-3.5 text-center font-title-sm text-on-surface focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] appearance-none" placeholder="0" type="number"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 font-body-md text-[12px] text-outline">in</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant text-center">Depth</label>
+<div class="relative">
+<input class="w-full bg-surface border border-outline-variant rounded-2xl py-3.5 text-center font-title-sm text-on-surface focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] appearance-none" placeholder="0" type="number"/>
+<span class="absolute right-3 top-1/2 -translate-y-1/2 font-body-md text-[12px] text-outline">in</span>
+</div>
+</div>
+</div>
+</div>
+<input class="peer hidden" id="generate-trigger" type="checkbox"/>
+<label class="block w-full py-5 bg-primary text-on-primary rounded-full font-title-sm text-title-sm text-center shadow-lg cursor-pointer hover:bg-neutral-800 active:scale-[0.98] transition-all" for="generate-trigger">
+            Generate 3D Model
+        </label>
+<div class="fixed inset-0 z-[100] bg-surface-bright/90 backdrop-blur-md flex-col items-center justify-center opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto transition-opacity duration-300 flex">
+<div class="relative w-32 h-32 mb-stack-gap-lg flex items-center justify-center">
+<div class="absolute inset-0 border-4 border-surface-container rounded-3xl"></div>
+<div class="absolute inset-0 border-4 border-emerald-600 rounded-3xl border-t-transparent animate-spin"></div>
+<span class="material-symbols-outlined text-[48px] text-emerald-600 animate-pulse" style="font-variation-settings: 'FILL' 1;">view_in_ar</span>
+</div>
+<h2 class="font-display-lg text-display-lg text-on-background mb-2">Generating...</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant text-center max-w-xs px-6">Synthesizing captures into a volumetric 3D model.</p>
+</div>
+</main>
+<nav class="fixed bottom-0 w-full bg-white/90 backdrop-blur-md border-t border-slate-100 flex justify-around items-center z-40 h-20 px-2 pb-safe">
+<a class="flex flex-col items-center gap-1 p-2 text-on-surface-variant hover:text-emerald-600 transition-colors w-20" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-caps text-[10px] text-center font-semibold">History</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-on-surface w-20" href="#">
+<div class="bg-secondary-container px-5 py-1.5 rounded-full flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">view_in_ar</span>
+</div>
+<span class="font-label-caps text-[10px] text-center font-bold mt-0.5">Viewer</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-on-surface-variant hover:text-emerald-600 transition-colors w-20" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-[10px] text-center font-semibold">Account</span>
+</a>
+</nav>
+</body></html>

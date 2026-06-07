@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Furniture-AI",
+    "name": "Fit My Room",
     "slug": "Furniture-AI",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -9,7 +9,13 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.Furniture-AI",
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app requires access to the camera to take photos of your furniture and visualize them in 3D.",
+        "NSPhotoLibraryUsageDescription": "This app requires access to your photo library to select photos of furniture for 3D visualization."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -19,7 +25,12 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.anonymous.FurnitureAI"
     },
     "web": {
       "output": "static",
@@ -27,6 +38,13 @@
     },
     "plugins": [
       "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you visualize furniture.",
+          "cameraPermission": "The app accesses your camera to let you take photos of furniture."
+        }
+      ],
       [
         "expo-splash-screen",
         {
@@ -37,6 +55,12 @@
           "dark": {
             "backgroundColor": "#000000"
           }
+        }
+      ],
+      [
+        "@react-native-google-signin/google-signin",
+        {
+          "iosUrlScheme": "YOUR_GOOGLE_SIGN_IN_IOS_URL_SCHEME"
         }
       ]
     ],

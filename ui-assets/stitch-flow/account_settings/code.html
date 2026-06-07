@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Account Settings - FurnishAI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#0b1c30",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary-container": "#131b2e",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary-container": "#191c1e",
+                        "on-background": "#0b1c30",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#191c1e",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#e0e3e5",
+                        "surface-bright": "#f8f9ff",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-low": "#eff4ff",
+                        "surface": "#f8f9ff",
+                        "secondary-container": "#6cf8bb",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "primary": "#000000",
+                        "on-surface-variant": "#45464d",
+                        "on-secondary-fixed": "#002113",
+                        "secondary": "#006c49",
+                        "surface-variant": "#d3e4fe",
+                        "outline": "#76777d",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-dim": "#cbdbf5",
+                        "surface-tint": "#565e74",
+                        "tertiary": "#000000",
+                        "inverse-primary": "#bec6e0",
+                        "background": "#f8f9ff",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "surface-container-high": "#dce9ff",
+                        "outline-variant": "#c6c6cd",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "surface-container": "#e5eeff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#dae2fd",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#005236",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-secondary-container": "#00714d",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-tertiary-container": "#818486",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#213145"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-margin": "20px",
+                        "stack-gap-lg": "24px",
+                        "stack-gap-sm": "8px",
+                        "section-padding": "40px",
+                        "stack-gap-md": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Inter"],
+                        "title-sm": ["Manrope"],
+                        "label-caps": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md text-emerald-600 dark:text-emerald-400 font-manrope font-semibold tracking-tight fixed top-0 w-full z-50 border-b border-slate-100 dark:border-slate-800 shadow-sm flex justify-between items-center px-5 h-16 w-full">
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<h1 class="font-manrope font-extrabold text-slate-900 dark:text-white tracking-widest uppercase text-base">FurnishAI</h1>
+<button class="hover:opacity-80 transition-opacity active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined text-[24px]">shopping_basket</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-container-margin max-w-2xl mx-auto space-y-stack-gap-lg">
+<!-- Header -->
+<div class="py-stack-gap-sm">
+<h2 class="font-display-lg text-display-lg">Account</h2>
+</div>
+<!-- Profile Section (Bento Card) -->
+<section class="bg-surface-lowest shadow-[0_4px_12px_rgba(0,0,0,0.04)] rounded-xl p-stack-gap-md border border-outline-variant/30 flex items-center space-x-stack-gap-md">
+<div class="relative w-20 h-20 rounded-full overflow-hidden border-2 border-surface-variant flex-shrink-0">
+<img alt="Profile Avatar" class="w-full h-full object-cover" data-alt="Close-up portrait of a young professional in soft natural lighting, minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1zUJ3Ly_ccSk-af-7EnLr8XBlf0pGeowX9M0zhVW1jWNhScuY8Lu6Q0yNT8HPncqBKZjig0myaIMxii-9F5O7-vEY4ErDfK5r_uhdK42hl_O3klUINQOTbxqoMOSPfvK7a87t0L8sekvioHGasXCne6VdxvB40HR3dBOem-DBnkS6hWLy3wusFoTerBZCLlpujeU-QWCo-UBQcDoSh-fvHi3ucpBidRzsv55_V4vo_JAPNvAIRfIj8EnIw4jquXavDqVe6Hzwmc0"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-title-sm text-title-sm text-on-surface">Alex Mercer</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">alex.mercer@design.co</p>
+</div>
+<button class="text-secondary hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-variant/50">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</section>
+<!-- Preferences Section -->
+<section class="space-y-stack-gap-sm">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider pl-1">Preferences</h4>
+<div class="bg-surface-lowest shadow-[0_4px_12px_rgba(0,0,0,0.04)] rounded-xl border border-outline-variant/30 divide-y divide-outline-variant/20 overflow-hidden">
+<div class="p-stack-gap-md flex justify-between items-center hover:bg-surface-container-low/50 transition-colors">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-on-surface-variant">straighten</span>
+<span class="font-body-lg text-body-lg">Default Units</span>
+</div>
+<div class="flex bg-surface-container-high rounded-full p-1">
+<button class="px-4 py-1 text-sm font-medium rounded-full bg-white shadow-sm text-primary">Inches</button>
+<button class="px-4 py-1 text-sm font-medium rounded-full text-on-surface-variant hover:text-primary">CM</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Support Section -->
+<section class="space-y-stack-gap-sm">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider pl-1">Support &amp; About</h4>
+<div class="bg-surface-lowest shadow-[0_4px_12px_rgba(0,0,0,0.04)] rounded-xl border border-outline-variant/30 divide-y divide-outline-variant/20 overflow-hidden">
+<a class="p-stack-gap-md flex justify-between items-center hover:bg-surface-container-low/50 transition-colors cursor-pointer group" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">help</span>
+<span class="font-body-lg text-body-lg">Contact Support</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</a>
+<a class="p-stack-gap-md flex justify-between items-center hover:bg-surface-container-low/50 transition-colors cursor-pointer group" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">privacy_tip</span>
+<span class="font-body-lg text-body-lg">Privacy Policy</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</a>
+<a class="p-stack-gap-md flex justify-between items-center hover:bg-surface-container-low/50 transition-colors cursor-pointer group" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">description</span>
+<span class="font-body-lg text-body-lg">Terms of Service</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</a>
+</div>
+</section>
+<!-- Actions -->
+<section class="pt-stack-gap-md pb-section-padding">
+<button class="w-full py-3 px-4 bg-error-container/20 text-error rounded-lg font-title-sm text-title-sm hover:bg-error-container/30 transition-colors border border-error/20 flex justify-center items-center space-x-2 active:scale-[0.98]">
+<span class="material-symbols-outlined">logout</span>
+<span>Log out</span>
+</button>
+<p class="text-center font-body-md text-body-md text-outline mt-stack-gap-md">v1.0.4</p>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 font-manrope text-[10px] font-medium tracking-wide uppercase fixed bottom-0 w-full z-50 h-20 pb-safe border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_12px_0px_rgba(0,0,0,0.04)] flex justify-around items-center w-full px-6 md:hidden">
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 hover:text-emerald-500 dark:hover:text-emerald-300 tap-highlight-transparent active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined mb-1">history</span>
+<span>History</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1 hover:text-emerald-500 dark:hover:text-emerald-300 tap-highlight-transparent active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined mb-1">view_in_ar</span>
+<span>Viewer</span>
+</button>
+<button class="flex flex-col items-center justify-center text-emerald-600 dark:text-emerald-400 bg-emerald-50/50 dark:bg-emerald-900/20 rounded-xl px-4 py-1 hover:text-emerald-500 dark:hover:text-emerald-300 tap-highlight-transparent active:scale-90 transition-transform duration-150">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">person</span>
+<span>Account</span>
+</button>
+</nav>
+</body></html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Furniture AI - AR Camera View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "error": "#ba1a1a",
+                        "surface-container": "#e5eeff",
+                        "surface-container-highest": "#d3e4fe",
+                        "surface-tint": "#565e74",
+                        "outline": "#76777d",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-secondary-container": "#00714d",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-fixed": "#e0e3e5",
+                        "tertiary-container": "#191c1e",
+                        "primary-fixed": "#dae2fd",
+                        "primary-container": "#131b2e",
+                        "secondary": "#006c49",
+                        "on-tertiary-container": "#818486",
+                        "on-primary-fixed": "#131b2e",
+                        "outline-variant": "#c6c6cd",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "surface-bright": "#f8f9ff",
+                        "secondary-container": "#6cf8bb",
+                        "inverse-surface": "#213145",
+                        "surface-variant": "#d3e4fe",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-surface-variant": "#45464d",
+                        "inverse-primary": "#bec6e0",
+                        "surface": "#f8f9ff",
+                        "on-background": "#0b1c30",
+                        "primary": "#000000",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container-low": "#eff4ff",
+                        "secondary-fixed": "#6ffbbe",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-primary": "#ffffff",
+                        "background": "#f8f9ff",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#000000",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-secondary-fixed": "#002113"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap-sm": "8px",
+                        "stack-gap-lg": "24px",
+                        "container-margin": "20px",
+                        "stack-gap-md": "16px",
+                        "section-padding": "40px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "title-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 20px); }
+        .pt-safe { padding-top: env(safe-area-inset-top, 20px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background h-screen w-screen overflow-hidden flex flex-col font-body-md antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- AR Canvas / Simulated Camera View -->
+<div class="relative flex-grow w-full h-full bg-surface-variant overflow-hidden" data-alt="Modern minimalist living room interior with a large empty floor space, neutral colors, natural lighting from a window, perfect for placing AR furniture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsEOCyP3rIWlr7nnT5JRN4k4peqQFTpkwMYQilVBZ5hb2Vof2q-E8ZzGu81t86B5cHnH2wSwC31t4GrA4_0YQEPu8-LApXFy7yjlj9QPGiM1HAFbzyyBzn2m4dBK6FgV55AKs5iAFB5ClhgATJ_Jymbv7Hhfxqzw7upJu2XFoHRzoqg7DnxO6SmHmkN6jsOLP3R6ie8LYsdWkHg4bDyrxtxLno4I2pqxWXvCGvum8rmcmmzIzImlNZTZRhdD90Hh99RCrWaZKv3FE"); background-size: cover; background-position: center center;'>
+<!-- Top Overlay Controls -->
+<div class="absolute top-0 left-0 w-full pt-safe z-40 bg-gradient-to-b from-black/40 to-transparent pointer-events-none h-32"></div>
+<div class="absolute top-safe left-0 w-full px-container-margin py-stack-gap-md flex justify-between items-center z-50">
+<!-- Back Button -->
+<button aria-label="Back" class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/30 transition-colors active:scale-95 shadow-sm border border-white/10" style="">
+<span class="material-symbols-outlined text-[24px]" style="">arrow_back</span>
+</button>
+<!-- AR Status Pill -->
+<!-- More Options -->
+<button aria-label="More options" class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/30 transition-colors active:scale-95 shadow-sm border border-white/10" style="">
+<span class="material-symbols-outlined text-[24px]" style="">more_vert</span>
+</button>
+</div>
+<!-- Projected 3D Model Placeholder -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none mt-20">
+<div class="relative">
+<!-- AR Placement Indicator / Reticle -->
+<div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-48 h-12 rounded-[100%] border-2 border-dashed border-secondary-container/80 bg-secondary-container/10 flex items-center justify-center shadow-[0_0_20px_rgba(108,248,187,0.3)]">
+<div class="w-2 h-2 rounded-full bg-secondary-container shadow-[0_0_8px_rgba(108,248,187,0.8)]"></div>
+</div>
+<!-- Simulated 3D Furniture -->
+<img alt="3D rendered modern armchair" class="w-64 h-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.4)] pointer-events-auto mix-blend-normal hover:scale-105 transition-transform duration-300" data-alt="isolated 3D render of a sleek modern mid-century armchair with mustard yellow fabric and dark wood legs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyggtmpsvAlsWh1k6b4-NEQ4wjbFlD5GQ-KP6xyO86O3jmIkagCH5MAbFIc4W5w82Fgfv5YtnKw5gKc2IpnKFHj1GCxa1sRRZ_O5DjOQ7A9DSEUwblJ2WMBA5fIRyL-uGuaKBjK6MIe50D0GOTRSs2B5k3GtH5XIm0wCWx0sWPJy27w3JWcWHxo0c1Vp2suUML4Lbzp4nlNCTOYLbu2DiBKuEYLow50OaAqqXI5DH6Pg5M-a-mQIHNQaA0QBCG_ewm3lNcFLArXPU" style="mask-image: radial-gradient(black 60%, transparent 100%);"/>
+<!-- AR Rotation Handles -->
+<div class="absolute top-1/2 -left-8 transform -translate-y-1/2 w-8 h-8 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center pointer-events-auto shadow-sm border border-white/20 text-on-surface">
+<span class="material-symbols-outlined text-[16px]" style="">rotate_left</span>
+</div>
+<div class="absolute top-1/2 -right-8 transform -translate-y-1/2 w-8 h-8 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center pointer-events-auto shadow-sm border border-white/20 text-on-surface">
+<span class="material-symbols-outlined text-[16px]" style="">rotate_right</span>
+</div>
+</div>
+</div>
+<!-- Bottom Controls Overlay (Above Nav) -->
+<div class="absolute bottom-[90px] left-0 w-full px-container-margin flex flex-col items-center gap-stack-gap-lg z-40 pb-safe">
+<!-- Contextual Action Carousel -->
+<!-- Capture Button -->
+<button aria-label="Take AR photo" class="w-20 h-20 rounded-full border-4 border-white bg-transparent flex items-center justify-center active:scale-95 transition-transform shadow-lg group focus:outline-none focus:ring-4 focus:ring-secondary-container/50" style="">
+<div class="w-16 h-16 rounded-full bg-white/90 group-hover:bg-white group-active:w-14 group-active:h-14 transition-all duration-200"></div>
+</button>
+<p class="text-white font-label-caps text-label-caps drop-shadow-md opacity-80" style="">TAP TO SNAP</p>
+</div>
+</div>
+<!-- BottomNavBar -->
+<div class="bg-white dark:bg-slate-950 text-emerald-600 dark:text-emerald-400 font-manrope text-[10px] font-bold uppercase tracking-widest fixed bottom-0 w-full z-50 pb-safe border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_12px_rgba(0,0,0,0.04)] flex justify-around items-center h-20 px-2 md:hidden">
+<!-- History (Inactive) -->
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1.5 hover:text-emerald-500 dark:hover:text-emerald-300 active:scale-90 transition-all duration-200 ease-out group" style="">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:scale-110 transition-transform" style="">history</span>
+<span class="" style="">History</span>
+</button>
+<!-- Viewer (Active) -->
+<button class="flex flex-col items-center justify-center text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 rounded-2xl px-4 py-1.5 hover:text-emerald-500 dark:hover:text-emerald-300 active:scale-90 transition-all duration-200 ease-out" style="">
+<span class="material-symbols-outlined text-[24px] mb-1" style='font-variation-settings: "FILL" 1;'>view_in_ar</span>
+<span class="" style="">Viewer</span>
+</button>
+<!-- Account (Inactive) -->
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-1.5 hover:text-emerald-500 dark:hover:text-emerald-300 active:scale-90 transition-all duration-200 ease-out group" style="">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:scale-110 transition-transform" style="">person</span>
+<span class="" style="">Account</span>
+</button>
+</div>
+</body></html>
